@@ -1,0 +1,43 @@
+<center> <h1>Hello this page has some more info</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @restaurant.phone_number %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @restaurant.category.capitalize %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant.reviews.each do |review| %>
+      <tr>
+        <td><%= review.content.capitalize %></td>
+        <td><%= review.rating %> 🌟 </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<center>
+<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant)%>
